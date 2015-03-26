@@ -1,55 +1,48 @@
-'use strict';
-/*global Parse*/
-Parse.initialize('KETYHRsGGMHnWJaJ7D5GsQSzKoPlzlUgvnWasMCp', '8bmT9hs1uzAGvlG1P09Bgt6Sa1XCUnjGtLLSXsqa');
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
-	//var user = Parse.User.current();
-	var Cocktails = Parse.Object.extend('Cocktails');
-	/*var query = new Parse.Query(Cocktails);
-	query.include('drinkware');
-	query.find({
-    	success: function(results) {
-    		console.log(results);
-    		var ingredients = results[0].relation('ingredients');
-    		ingredients.query().find({
-				success: function(list) {
-					console.log(list);
-				}, error: function() {
-				  	console.log('error', $scope);
-				}
-			});
-    	},
-    	error: function() {
-    		console.log($scope, 'error');
-    	}
-    });*/
-	var Ingredients = Parse.Object.extend("Ingredients");
-	var innerQuery = new Parse.Query(Ingredients);
-	//innerQuery.exists("image");
-	var query = new Parse.Query(Cocktails);
-	query.matchesQuery("ingredients", innerQuery);
-	query.find({
-	  success: function(comments) {
-	  	console.log(comments);
-	    // comments now contains the comments for posts with images.
-	  }
-	});
-})
+.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+  // Form data for the login modal
+  $scope.loginData = {};
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  // Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/login.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  // Triggered in the login modal to close it
+  $scope.closeLogin = function() {
+    $scope.modal.hide();
+  };
+
+  // Open the login modal
+  $scope.login = function() {
+    $scope.modal.show();
+  };
+
+  // Perform the login action when the user submits the login form
+  $scope.doLogin = function() {
+    console.log('Doing login', $scope.loginData);
+
+    // Simulate a login delay. Remove this and replace with your login
+    // code if using a login system
+    $timeout(function() {
+      $scope.closeLogin();
+    }, 1000);
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('PlaylistsCtrl', function($scope) {
+  $scope.playlists = [
+    { title: 'Reggae', id: 1 },
+    { title: 'Chill', id: 2 },
+    { title: 'Dubstep', id: 3 },
+    { title: 'Indie', id: 4 },
+    { title: 'Rap', id: 5 },
+    { title: 'Cowbell', id: 6 }
+  ];
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('PlaylistCtrl', function($scope, $stateParams) {
 });
