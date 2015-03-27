@@ -1,5 +1,10 @@
+'use strict';
 angular.module('starter.controllers', [])
-
+.controller('BodyCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+  $scope.$on('$stateChangeStart', function(event, toState){
+    $rootScope.controllerClass = toState.className;
+  });
+}])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
@@ -44,5 +49,5 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('PlaylistCtrl', function() {
 });

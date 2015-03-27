@@ -1,1 +1,50 @@
-// Your application styles go here
+@font-face {
+    font-family: 'Signika-Regular';
+	src: url('../fonts/Signika-Regular.eot');
+	src: url('../fonts/Signika-Regular.eot?#iefix') format('embedded-opentype'),
+	    url('../fonts/Signika-Regular.woff2') format('woff2'),
+	    url('../fonts/Signika-Regular.woff') format('woff'),
+	    url('../fonts/Signika-Regular.ttf') format('truetype'),
+	    url('../fonts/Signika-Regular.svg#Signika-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Signika-Light';
+  	src: url('../fonts/Signika-Light.eot');
+  	src: url('../fonts/Signika-Light.eot?#iefix') format('embedded-opentype'),
+   		url('../fonts/Signika-Light.woff2') format('woff2'),
+       	url('../fonts/Signika-Light.woff') format('woff'),
+       	url('../fonts/Signika-Light.ttf') format('truetype'),
+       	url('../fonts/Signika-Light.svg#Signika-Light') format('svg');
+  	font-weight: normal;
+  	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Signika-Semibold';
+  	src: url('../fonts/Signika-Semibold.eot');
+  	src: url('../fonts/Signika-Semibold.eot?#iefix') format('embedded-opentype'),
+       	url('../fonts/Signika-Semibold.woff2') format('woff2'),
+       	url('../fonts/Signika-Semibold.woff') format('woff'),
+       	url('../fonts/Signika-Semibold.ttf') format('truetype'),
+       	url('../fonts/Signika-Semibold.svg#Signika-Semibold') format('svg');
+  	font-weight: normal;
+  	font-style: normal;
+}
+@import '_colors';
+body,
+.pane {
+  background-color: $purple2;
+  color:#FFF;
+}
+.bar.bar-stable {
+	background-color: $purple4;
+}
+body,
+h1, h2, h3 {
+	font-family: Signika-Regular;
+	color:#FFF;
+}
+@import 'splash';
