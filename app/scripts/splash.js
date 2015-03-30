@@ -5,5 +5,5 @@ angular.module('starter.controllers')
 	$timeout(function() {
 		$state.transitionTo('app.home');
 		$ionicHistory.clearHistory();
-	}, 8000);
+	}, 6000);
 }]);

@@ -1,0 +1,30 @@
+@import '_colors';
+.home_menu {
+	&_logo {
+		text-align:center;
+		img {
+			border: 8px solid #FFF;
+	    	border-radius: 150px;
+			-webkit-border-radius: 150px;
+			-moz-border-radius: 150px;
+		}
+		h2 {
+			margin:0;
+		}
+	}
+	li {
+		&.yellow {
+			background-color: $yellow1;
+		}
+		&.red {
+			background-color: $red1;
+		}
+		&.green {
+			background-color: $green1;
+		}
+		a {
+			display:block;
+			text-decoration: none;
+		}
+	}
+}

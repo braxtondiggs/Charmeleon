@@ -17,7 +17,7 @@
 			-moz-border-radius: 150px;
 	    }
 	    &.delay {
-	    	-webkit-animation-delay: 3s;
+	    	-webkit-animation-delay: 2s;
 	    }	
 	    &.zoomOut-custom {
 	    	-webkit-animation-name: zoomOut-custom;
@@ -30,7 +30,7 @@
 	    left: 50%;
 	    opacity: 0;
 	    transform: translate(-50%, -50%);
-	    -webkit-animation-delay: 4s;
+	    -webkit-animation-delay: 3s;
 	    -webkit-animation-name: spin;
 	    -webkit-animation-duration: 3000ms;
 	    -webkit-animation-iteration-count: 1;
