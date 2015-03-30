@@ -1,0 +1,24 @@
+@import '_colors';
+.list.favorite_list {
+	background-color:transparent;
+	.item {
+		background-color: transparent;
+		border-color: $purple4;
+		min-height:125px;
+		img {
+			border: 4px solid #FFF;
+		    border-radius: 100px;
+			-webkit-border-radius: 100px;
+			-moz-border-radius: 100px;
+			max-height: 100px;
+			max-width: 100px;
+		}
+		h2 {
+			font-size: 50px;
+  			margin-left: 20px;
+		}
+		&:first-child {
+			border-top-color:transparent;
+		}
+	}
+}

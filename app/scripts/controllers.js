@@ -50,4 +50,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function() {
+})
+.controller('FavoriteCtrl', function() {
+})
+.controller('CocktailCtrl', function() {
 });

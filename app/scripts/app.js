@@ -43,7 +43,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-
+  .state('app.favorite', {
+    url: '/favorite',
+    className: 'favorite',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/favorite.html',
+        controller: 'FavoriteCtrl'
+      }
+    }
+  })
+  .state('app.cocktail', {
+    url: '/cocktail/:cocktailId',
+    className: 'cocktail',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/cocktail.html',
+        controller: 'CocktailCtrl'
+      }
+    }
+  })
   .state('app.search', {
     url: '/search',
     views: {
