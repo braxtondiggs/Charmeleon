@@ -1,10 +1,12 @@
 <ion-view view-title="Negroni" hide-nav-bar="false">
   <ion-content class="padding">
   	<div class="quick_action_bar">
-  		<!--<a href="#" class="favorite icon" ng-class="(true)? 'ion-ios-star-outline': 'ion-ios-star'"></a>-->
-      <section class="fave" ng-click="actived = (actived)?false:true;" ng-class="{'active': actived}"></section>
+      <div class="fave" ng-click="actived = (actived)?false:true;" ng-class="{'active': actived}"></div>
   	</div>
-  	<img class="cocktail_image" ng-src="http://placehold.it/200x200"  on-double-tap="mixed()" />
+    <div class="cocktail_image">
+      <div class="cup-pint"></div>
+      <!--<img class="cocktail_image" ng-src="http://placehold.it/200x200"  on-double-tap="mixed()" />-->
+    </div>
   	<h2 class="cocktail_title">Negroni</h2>
   	<hr />
   	<div class="ingredients">

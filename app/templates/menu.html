@@ -12,23 +12,33 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left">
+  <ion-side-menu side="left" class="dark-menu">
     <ion-header-bar class="bar-stable">
-      <!--<h1 class="title">Left</h1>-->
+      <div class="profile" ng-show="currentUser._serverData">
+          <img class="img-circle" alt="" ng-src="{{currentUser.get('image')._url}}" ng-if="currentUser.get('image')._url"/>
+          <div class="img-circle no-image" ng-if="!currentUser.get('image')._url"></div>
+          <h1 class="title">{{currentUser.get('name')}}</h1>
+      </div>
     </ion-header-bar>
-    <ion-content>
+    <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="login()">
-          Login / Sign-Up
+        <ion-item nav-clear menu-close ng-click="login();" href="#" ng-if="!currentUser._serverData">
+            <i class="ion-person-stalker"></i>Log-in / Sign-up
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/search">
-          Favorites
+        <ion-item menu-close href="#app/search/" ng-click="setSearchBar(true)">
+            <i class="ion-search"></i>Search
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/browse">
-          Drinks
+        <ion-item nav-clear menu-close href="#/app/favorite">
+          <i class="ion-star"></i>Favorites
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          <i class="icon settings"></i>&nbsp;Settings
+        <ion-item nav-clear menu-close href="#/app/drinks">
+          <i class="ion-ionic"></i>Drinks
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/settings">
+          <i class="ion-gear-b"></i>Settings
+        </ion-item>
+        <ion-item nav-clear ng-click="logout();" ng-if="currentUser._serverData">
+            <i class="ion-person-stalker"></i>Logout
         </ion-item>
       </ion-list>
     </ion-content>

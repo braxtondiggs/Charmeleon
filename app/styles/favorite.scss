@@ -22,3 +22,23 @@
 		}
 	}
 }
+.bar {
+	-webkit-animation-name: expand-me;
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-iteration-count: 1;
+}
+.bar .title, .bar .left-buttons button{
+	-webkit-animation-name: color-me;
+	-webkit-animation-duration: 500ms;
+	-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes expand-me {
+	0% {width: 0px;margin: 0 auto;visibility:hidden;}
+	100% {width:100%;margin: 0 auto;visibility:visible;}
+}
+@-webkit-keyframes color-me {
+	0% {color:transparent;}
+	75% {color:transparent;}
+	100% {color:#444;}
+}
