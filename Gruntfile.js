@@ -223,9 +223,13 @@ module.exports = function (grunt) {
 
     // The following *-min tasks produce minified files in the dist folder
     cssmin: {
-      options: {
-        //root: '<%= yeoman.app %>',
-        noRebase: true
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/<%= yeoman.styles %>/main.css': [
+            '.temp/<%= yeoman.styles %>/**/*.css',
+            '<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'
+          ]
+        }
       }
     },
     htmlmin: {
@@ -274,7 +278,7 @@ module.exports = function (grunt) {
       },
       fonts: {
         expand: true,
-        cwd: 'app/lib/ionic/release/fonts/',
+        cwd: 'app/bower_components/ionicons/fonts/',
         dest: '<%= yeoman.app %>/fonts/',
         src: '*'
       },
@@ -549,7 +553,7 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('coverage', 
+  grunt.registerTask('coverage',
     ['karma:continuous',
     'connect:coverage:keepalive'
   ]);

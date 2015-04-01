@@ -1,9 +1,10 @@
 <ion-view view-title="Negroni" hide-nav-bar="false">
   <ion-content class="padding">
   	<div class="quick_action_bar">
-  		<a href="#" class="favorite icon" ng-class="(true)? 'ion-ios-star-outline': 'ion-ios-star'"></a>
+  		<!--<a href="#" class="favorite icon" ng-class="(true)? 'ion-ios-star-outline': 'ion-ios-star'"></a>-->
+      <section class="fave" ng-click="actived = (actived)?false:true;" ng-class="{'active': actived}"></section>
   	</div>
-  	<img class="cocktail_image" ng-src="http://placehold.it/200x200" />
+  	<img class="cocktail_image" ng-src="http://placehold.it/200x200"  on-double-tap="mixed()" />
   	<h2 class="cocktail_title">Negroni</h2>
   	<hr />
   	<div class="ingredients">
@@ -28,5 +29,15 @@
   		<h3>How to mix</h3>
   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tortor nisi, pellentesque eget lobortis ut, facilisis et nulla. Cras finibus vel eros eget lacinia. Phasellus at varius tellus. Morbi cursus placerat urna nec sodales. Etiam nec pretium lorem. Fusce suscipit nisi ut est dignissim, nec aliquet neque tincidunt. Phasellus eget rutrum neque. Curabitur nibh mi, accumsan vel velit a, porta tempor justo.</p>
   	</div>
+    <hr />
+    <div class="social_drinks">
+      <h3>Social Mixers</h3>
+      <div class="scroll-area">
+        <a href="#"class="social_drink" ng-repeat="social in socialCocktails">
+          <img src="http://placehold.it/50x50" class="drink"/>
+          <img src="http://placehold.it/25x25" class="user_drink" />
+        </a>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

@@ -53,5 +53,15 @@ angular.module('starter.controllers', [])
 })
 .controller('FavoriteCtrl', function() {
 })
-.controller('CocktailCtrl', function() {
-});
+.controller('CocktailCtrl', ['$scope', '$ionicModal', function($scope, $ionicModal) {
+  $scope.socialCocktails = [0,1,2,3,4,5,6,7,8,9];
+  $scope.actived = false;
+  $scope.mixed = function() {
+    $ionicModal.fromTemplateUrl('templates/modal/blank.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      modal.show();
+    });
+  };
+}]);
