@@ -3,9 +3,17 @@
   	<div class="quick_action_bar">
       <div class="fave" ng-click="actived = (actived)?false:true;" ng-class="{'active': actived}"></div>
   	</div>
-    <div class="cocktail_image">
-      <div class="cup-pint"></div>
-      <!--<img class="cocktail_image" ng-src="http://placehold.it/200x200"  on-double-tap="mixed()" />-->
+    <div class="cocktail_image" on-double-tap="mixed()">
+      <div class='bottle'>
+        <div class='bottle_main'>
+          <div class='bottle_inner'>
+            <div class='water red'></div>
+            <div class='water black'></div>
+            <div class='water green'></div>
+          </div>
+          <div class='highlight'></div>
+        </div>
+      </div>
     </div>
   	<h2 class="cocktail_title">Negroni</h2>
   	<hr />
