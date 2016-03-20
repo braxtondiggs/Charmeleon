@@ -1,4 +1,4 @@
-// Generated on 2015-03-17 using generator-ionic 0.7.1
+// Generated on 2016-03-20 using generator-ionic 0.8.0
 'use strict';
 
 var _ = require('lodash');
@@ -31,11 +31,11 @@ module.exports = function (grunt) {
     // Environment Variables for Angular App
     // This creates an Angular Module that can be injected via ENV
     // Add any desired constants to the ENV objects below.
-    // https://github.com/diegonetto/generator-ionic#environment-specific-configuration
+    // https://github.com/diegonetto/generator-ionic/blob/master/docs/FAQ.md#how-do-i-add-constants
     ngconstant: {
       options: {
         space: '  ',
-        wrap: '\'use strict\';\n\n {%= __ngModule %}',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
         name: 'config',
         dest: '<%= yeoman.app %>/<%= yeoman.scripts %>/configuration.js'
       },
@@ -157,7 +157,7 @@ module.exports = function (grunt) {
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: /(\.\.\/){1,2}lib\//
+        ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
 
@@ -223,13 +223,9 @@ module.exports = function (grunt) {
 
     // The following *-min tasks produce minified files in the dist folder
     cssmin: {
-      dist: {
-        files: {
-          '<%= yeoman.dist %>/<%= yeoman.styles %>/main.css': [
-            '.temp/<%= yeoman.styles %>/**/*.css',
-            '<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'
-          ]
-        }
+      options: {
+        //root: '<%= yeoman.app %>',
+        noRebase: true
       }
     },
     htmlmin: {
@@ -278,7 +274,7 @@ module.exports = function (grunt) {
       },
       fonts: {
         expand: true,
-        cwd: 'app/bower_components/ionicons/fonts/',
+        cwd: 'app/bower_components/ionic/release/fonts/',
         dest: '<%= yeoman.app %>/fonts/',
         src: '*'
       },
@@ -399,7 +395,7 @@ module.exports = function (grunt) {
       },
       continuous: {
         browsers: ['PhantomJS'],
-        singleRun: true,
+        singleRun: true
       }
     },
 
@@ -553,7 +549,7 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('coverage',
+  grunt.registerTask('coverage', 
     ['karma:continuous',
     'connect:coverage:keepalive'
   ]);

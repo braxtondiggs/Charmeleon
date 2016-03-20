@@ -41,7 +41,7 @@
         <preference name="android-configChanges" value="orientation" />
         <preference name="android-theme" value="@android:style/Theme.Black.NoTitleBar" />
 
-        <config-file target="AndroidManifest.xml" parent="/*>
+        <config-file target="AndroidManifest.xml" parent="/*">
             <supports-screens
                 android:xlargeScreens="false"
                 android:largeScreens="false"
@@ -97,7 +97,8 @@ var platformConfig = (function(){
             'android-theme': {target: 'AndroidManifest.xml', parent: 'application/activity[@android:name=\'CordovaApp\']', destination: 'android:theme'},
             'android-windowSoftInputMode': {target: 'AndroidManifest.xml', parent: 'application/activity[@android:name=\'CordovaApp\']', destination: 'android:windowSoftInputMode'}
         },
-        'ios': {}
+        'ios': {},
+        'browser': {}
     };
     var configXmlData, preferencesData;
 
@@ -335,7 +336,11 @@ var platformConfig = (function(){
         _.each(platforms, function (platform) {
             try {
                 platform = platform.trim().toLowerCase();
-                platformConfig.updatePlatformConfig(platform);
+                if(platform == 'android' || platform == 'ios'){
+                    platformConfig.updatePlatformConfig(platform);
+                } else {
+                    console.log('Platform "' + platform + '" not supported by this hook.');
+                }
             } catch (e) {
                 process.stdout.write(e);
             }
